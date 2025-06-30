@@ -23,6 +23,10 @@ Este projeto está licenciado sob os termos da [Licença MIT](LICENSE).
 
 
 # Changelog
+## [1.1.0] - 30/06/2025
+- Primeira versão funcional
+- criação da estrutura de pastas do Marisco
+- primeira operação adicionada (adição)
 
 ## [0.1.0] - 16/05/2025
 - README.md modificado para 📄README.md
