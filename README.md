@@ -1,8 +1,11 @@
 # Marisco
 
 Pratique matemática off-line e sem anúncios👌.
+
 **Marisco** é um conjunto de programas simples para praticar matemática no terminal, voltado para quem quer estudar sem distrações, sem precisar de internet e sem anúncios.
+
 No momento, o foco está na funcionalidade. Melhorias visuais poderão ser feitas futuramente, talvez apenas quando o projeto atingir uma versão mais completa.
+
 Todos os programas ficarão organizados dentro da pasta `Marisco`. Em breve, será feita uma junção de todos eles em um só arquivo para facilitar o uso.
 
 ___
