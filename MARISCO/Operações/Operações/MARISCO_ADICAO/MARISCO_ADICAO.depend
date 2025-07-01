@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1751321561 source:c:\users\usuario\desktop\programação\projetos\marisco\marisco\operações\marisco_adicao\marisco_adicao\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+
