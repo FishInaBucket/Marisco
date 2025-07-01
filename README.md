@@ -23,14 +23,21 @@ Este projeto está licenciado sob os termos da [Licença MIT](LICENSE).
 
 
 # Changelog
+
+## [1.2.1] - 01/07/2025
+- Overflow da operação de multiplicação consertado.
+- problemas na operação de adição consertado.
+- Mudança nas dificuldades de cada operação.
+
+
 ## [1.1.0] - 30/06/2025
-- Primeira versão funcional
-- criação da estrutura de pastas do Marisco
-- primeira operação adicionada (adição)
+- Primeira versão funcional.
+- criação da estrutura de pastas do Marisco.
+- primeira operação adicionada (adição).
 
 ## [0.1.0] - 16/05/2025
-- README.md modificado para 📄README.md
-- Licença do MIT modificada para ('✔LICENSE')
-- Licença do MIT adicionada ('LICENSE')
-- README.md criado com descrição do projeto
-- início do projeto
+- README.md modificado para 📄README.md.
+- Licença do MIT modificada para ('✔LICENSE').
+- Licença do MIT adicionada ('LICENSE').
+- README.md criado com descrição do projeto.
+- início do projeto.
