@@ -7,7 +7,8 @@ Pratique matemática off-line e sem anúncios👌.
 No momento, o foco está na funcionalidade. Melhorias visuais poderão ser feitas futuramente, talvez apenas quando o projeto atingir uma versão mais completa.
 
 Todos os programas ficarão organizados dentro da pasta `Marisco`. Em breve, será feita uma junção de todos eles em um só arquivo para facilitar o uso.
-
+___
+![Image](https://github.com/user-attachments/assets/d8775432-a3dc-4a7a-8760-0f022b54eaa7)
 ___
 
 ### Objetivos do projeto
