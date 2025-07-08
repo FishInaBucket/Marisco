@@ -11,6 +11,19 @@ ___
 ![Image](https://github.com/user-attachments/assets/d8775432-a3dc-4a7a-8760-0f022b54eaa7)
 ___
 
+# Aviso
+
+Este programa não tem assinatura digital, alguns antivírus (como o Windows Defender) podem detectar o arquivo `.exe` como uma ameaça e apagá-lo automaticamente.
+Isso é um falso positivo comum em programas pequenos e novos.
+
+Se isso acontecer, você pode:
+
+- **Desativar temporariamente** a proteção em tempo real para baixar e utilizar
+- Criar uma pasta (ex: `C:\Marisco`) e Adicionar essa pasta à lista de exclusões do antivírus **antes de baixar** ou extrair os arquivos
+- Se quiser, você pode **compilar os arquivos .cpp com qualquer compilador C++** no seu PC (como Code::Blocks, g++, etc). Não é difícil.
+
+Todos os programas são seguros e livres de malware.
+
 ### Objetivos do projeto
 
 - Oferecer prática matemática básica (adição, subtração, multiplicação, etc.)
