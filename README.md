@@ -26,7 +26,7 @@ Todos os programas são seguros e livres de malware.
 
 ### Objetivos do projeto
 
-- Oferecer prática matemática básica (adição, subtração, multiplicação, etc.)
+- Oferecer prática de matemática básica (adição, subtração, multiplicação, etc.)
 - Funcionar 100% off-line
 - Ser totalmente gratuito e livre para qualquer pessoa usar ou modificar (Licença MIT)
 
@@ -35,13 +35,14 @@ ___
 ### Licença
 Este projeto está licenciado sob os termos da [Licença MIT](LICENSE).
 
+___
 
 # Changelog
 
 ## [2.2.2] - 04/08/2025
 - Melhorias e otimizações no código
 - Bugs identificados consertados
-- opção de navegar pelo programa adicionado
+- Opção de navegar pelo programa adicionado
 
 
 ## [1.2.1] - 01/07/2025
@@ -52,10 +53,10 @@ Este projeto está licenciado sob os termos da [Licença MIT](LICENSE).
 
 ## [1.1.0] - 30/06/2025
 - Primeira versão funcional.
-- criação da estrutura de pastas do Marisco.
-- primeira operação adicionada (adição).
+- Criação da estrutura de pastas do Marisco.
+- Primeira operação adicionada (adição).
 
 ## [0.1.0] - 16/05/2025
 - Licença do MIT adicionada ('LICENSE').
 - README.md criado com descrição do projeto.
-- início do projeto.
+- Início do projeto.
