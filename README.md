@@ -38,6 +38,12 @@ Este projeto está licenciado sob os termos da [Licença MIT](LICENSE).
 
 # Changelog
 
+## [2.2.2] - 04/08/2025
+- Melhorias e otimizações no código
+- Bugs identificados consertados
+- opção de navegar pelo programa adicionado
+
+
 ## [1.2.1] - 01/07/2025
 - Overflow da operação de multiplicação consertado.
 - problemas na operação de adição consertado.
