@@ -4,8 +4,9 @@
 	<cstdlib>
 	<ctime>
 
-1751404123 source:c:\users\usuario\desktop\programação\projetos\marisco\marisco\operações\marisco_adicao\adicao_marisco.cpp
+1753454041 source:c:\users\usuario\desktop\programação\projetos\marisco\marisco\operações\marisco_adicao\adicao_marisco.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
+	<limits>
 

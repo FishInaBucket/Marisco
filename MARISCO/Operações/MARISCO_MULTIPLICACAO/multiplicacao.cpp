@@ -1,27 +1,117 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 using namespace std;
 
-int resposta = 0, dificuldade = 0, tamanho_dificuldade = 0;
-long long val_1, val_2, val_3, val_4,val_z;
+bool sair = false;
+int dificuldade, tamanho_dificuldade = 0;
+long long val_1, val_2, val_3, val_4,val_z, entrada = 0;
 
 
-auto intro = [] () {
+void valoraleatorio();
+void resposta_A();
+void dificuldade_multiplicacao();
+void marisco_programa();
+void user_erro();
+void menu_voltar();
+
+void config() {
+
+    setlocale(LC_ALL,"");
+
+
+    #ifdef _WIN32
+        system("title MARISCO - Prática de Matemática");
+    #else
+        cout << "\033]0;MARISCO - Prática de Matemática\007";
+    #endif
+
+
+
+    unsigned seed = time(0);
+    srand(seed);
+
+}
+
+void limparTela() {
+        #ifdef _WIN32
+            system("CLS");
+        #else
+            system("clear");
+        #endif
+}
+
+void pausa() {
+    #ifdef _WIN32
+        system("pause");
+    #else
+        cout << "pressione qualquer tecla para continuar...";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.get();
+    #endif
+}
+
+void intro() {
 cout << "\n";
     cout << "************************************";
     cout << "\n" << "**************" << "Marisco" << "***************" << "\n";
     cout << "************************************";
 cout << "\n";
-    cout << ">>>>>>>>>>>>>" << "    MULTIPLICAÇÃO " << "<<<<<<<<<<<<<<";
+    cout << ">>>>>>>>>>>>>" << "    MULTIPLICAÇÃO  " << "<<<<<<<<<<<<<<";
 cout << "\n";
-};
+}
+
+
+
+int main() {
+    config();
+
+    limparTela();
+    intro();
+    dificuldade_multiplicacao();
+
+    return 0;
+}
+
+
+
+void valoraleatorio() {
+
+    val_1 = 5 + rand()%tamanho_dificuldade;
+    val_2 = 10 + rand()%tamanho_dificuldade;
+    val_3 = 40 + rand()%tamanho_dificuldade;
+    val_4 = 100 + rand()%tamanho_dificuldade;
+
+}
+
+void resposta() {
+    while (true) {
+        entrada = 0;
+        cin >> entrada;
+
+
+        if (cin.fail()) {
+            cout << "Entrada inválida! Por favor, digite apenas números.\n";
+            pausa();
+            cin.clear();
+
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            menu_voltar();
+
+        } else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            break;
+        }
+    }
+}
+
 
 void dificuldade_multiplicacao(){
-
 cout << endl << endl;
-
-    cout << "Escolha uma dificuldade" << "\n";
+    cout << "Escolha uma dificuldade: " << endl;
 cout << endl << "+++++++++++++++++++++++++" << endl;
     cout << "       " << "(1)" << "fácil" << endl;
     cout << "       " << "(2)"<< "médio" << endl;
@@ -29,120 +119,153 @@ cout << endl << "+++++++++++++++++++++++++" << endl;
 cout << endl << "+++++++++++++++++++++++++" << endl;
 
 cout << endl << endl;
+          cout << "[DICA:]Você pode digitar uma letra (exemplo: a, b, c, etc.) para ter a opção de voltar ou não para esse menu de escolha";
+cout << endl << endl << "digite o número para escolher uma dificuldade (de 1 até 3): ";
+    dificuldade = 0;
 
-cout << endl << "digite o número para escolher a dificuldade (de 1 até 3): "; cin >> resposta;
-
-switch(resposta){
+    resposta();
+while (true){
+switch(entrada){
     case 1:
         cout << "fácil";
         dificuldade = 1;
-        tamanho_dificuldade = 98;
-    break;
+        tamanho_dificuldade = 99;
+        marisco_programa();
+        return;
     case 2:
         cout << "médio";
         dificuldade = 2;
-        tamanho_dificuldade = 999;
-    break;
+        tamanho_dificuldade = 988;
+        marisco_programa();
+
+    return;
     case 3:
         cout << "difícil";
         dificuldade = 3;
-        tamanho_dificuldade = 1500;
-    break;
+        tamanho_dificuldade = 105001;
+        marisco_programa();
+    return;
 
     default:
-        cout << "apenas valores de 1 até 3" << endl;
-            system("pause");
-            system("CLS");
+        cout << "Por favor, digite apenas um número de 1 a 3 para escolher a dificuldade." << endl;
+
+        pausa();
+        limparTela();
         intro();
-        dificuldade_multiplicacao();
+  }
+ }
 }
 
-}
+void user_erro(){
 
-int multiplicacao(){
-    system("CLS");
-
-
-    unsigned seed = time(0);
-    srand(seed);
-
-
-    while(true){
-        system("CLS");
-
-        cout << endl << "           " << "          MULTIPLICAÇÃO     " << "           " << endl;
-
-            val_1 = 1 + rand()%tamanho_dificuldade; val_2 = 1 + rand()%tamanho_dificuldade; val_3 = 1 + rand()%tamanho_dificuldade; val_4 = 1 + rand()%tamanho_dificuldade;
-
-        if(dificuldade == 1){
-            resposta = 0;
-            cout << " " << val_1 << endl << "x" << val_2;
-
-            val_z = val_1 * val_2;
-
-                cout << endl << "Resposta: "; cin >> resposta;
-                    if(resposta == val_z){
-                        multiplicacao();
-                    }else{
-                        cout << endl << "Resposta errada :(" << endl;
-                        cout << endl << val_1 << "x" << val_2 << " é igual(=) a: " << val_z << endl;
-                        cout << endl << "   NÃO DESISTA!!!!   " << endl;
-
-                        system("PAUSE");
-                        system("CLS");
-                     }
-        }
-        if(dificuldade == 2){
-            resposta = 0;
-            cout << " " << val_1 << endl << " " << val_2 << endl<< "x" << val_3;
-
-            val_z = val_1 * val_2 * val_3;
-
-                cout << endl << "Resposta: "; cin >> resposta;
-                    if(resposta == val_z){
-                        multiplicacao();
-                    }else{
-                        cout << endl << "Resposta errada :(" << endl;
-                        cout << endl << val_1 << " x " << val_2 << " x " << val_3 << " é igual(=) a: " << val_z << endl;
-                        cout << endl << "   NÃO DESISTA!!!!   " << endl;
-
-                        system("PAUSE");
-                        system("CLS");
-                    }
-        }
-        if(dificuldade == 3){
-             resposta = 0;
-             cout << " " << val_1 << endl << " " << val_2 << endl << " " << val_3 << endl << "x" << val_4;
-
-            val_z = val_1 * val_2 * val_3 * val_4;
-
-                cout << endl << "Resposta: "; cin >> resposta;
-
-                    if(resposta == val_z){
-                        multiplicacao();
-                    }else{
-                        cout << endl << "Resposta errada :(" << endl;
-                        cout << endl << val_1 << " x " << val_2<< " x " << val_3 << " x " << val_4 << " é igual(=) a: " << val_z << endl;
-                        cout << endl << "   NÃO DESISTA!!!!!   " << endl;
-
-                        system("PAUSE");
-                        system("CLS");
-                     }
-        }
-
+    if(dificuldade == 1){
+        cout << endl << val_1 << " x " << val_2 << " é igual(=) a: " << val_z << endl;
+    } else if (dificuldade == 2){
+        cout << endl << val_1 << " x " << val_2 << " x " << val_3 << " é igual(=) a: " << val_z << endl;
+    } else {
+        cout << endl << val_1 << " x " << val_2<< " x " << val_3 << " x " << val_4 << " é igual(=) a: " << val_z << endl;
     }
 
+        cout << endl << "Resposta errada :(" << endl;
+        cout << endl << "   NÃO DESISTA!!!!   " << endl;
+        pausa();
+        limparTela();
+
 }
 
-int main(){
+void menu_voltar(){
+    cout << "Deseja voltar ao menu de dificuldade? digite 1(SIM [voltar para o menu de dificuldade]) ou 2(NÃO[Continuar onde está]): ";
 
-setlocale(LC_ALL,"");
+            resposta();
+            if(entrada == 1){
+                limparTela();
+                sair = false;
+                intro();
+                dificuldade_multiplicacao();
+            } else if (entrada == 2){
+                    if (dificuldade == 0){
+                        limparTela();
+                        intro();
+                        dificuldade_multiplicacao();
+                    } else {
+                        limparTela();
+                        marisco_programa();
+                    }
+            } else {
+                  limparTela();
+                cout << "Resposta inválida! Mandando para o menu de dificuldade." << endl;
+                  pausa();
+                  limparTela();
+                  intro();
+                  dificuldade_multiplicacao();
+            }
 
-intro();
-dificuldade_multiplicacao();
-multiplicacao();
+
+}
+
+void marisco_programa(){
+    sair = true;
+    limparTela();
+
+    while(sair){
+
+        limparTela();
+        valoraleatorio();
+
+        cout << endl << "           " << "      MULTIPLICAÇÃO     " << "           " << endl;
+
+    switch(dificuldade){
+
+        case 1:
+
+                cout << val_1 << " x "  << val_2;
+            val_z = val_1 * val_2;
+                cout << endl << "Resposta: ";
+                resposta();
+                if(entrada == val_z){
+                    continue;
+                }else{
+                    user_erro();
+                  }
+            break;
+
+        case 2:
+
+                cout << val_1 << " x "  << val_2 <<  " x " << val_3;
+            val_z = val_1 * val_2 * val_3;
+                cout << endl << "Resposta: ";
+                resposta();
 
 
+                 if(entrada == val_z){
+                    continue;
+                 }else{
+                user_erro();
+                }
 
-return 0;
+
+            break;
+
+        case 3:
+
+                cout << val_1 <<  " x "  << val_2 << " x "  << val_3 << " x "  << val_4;
+            val_z = val_1 * val_2 * val_3 * val_4;
+                cout << endl << "Resposta: ";
+                resposta();
+
+
+                if(entrada == val_z){
+                    continue;
+                }else{
+                user_erro();
+                     }
+            break;
+
+        default:
+            cout << "Ocorreu um erro, redirecionando para o menu de escolha de dificuldade mais uma vez";
+            pausa();
+            limparTela();
+            intro();
+    }
+  }
 }

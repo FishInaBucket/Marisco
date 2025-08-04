@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1751407239 source:c:\users\usuario\desktop\programação\projetos\marisco\marisco\operações\marisco_subtracao\subtracao.cpp
+1753705566 source:c:\users\usuario\desktop\programação\projetos\marisco\marisco\operações\marisco_subtracao\subtracao.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
+	<limits>
 

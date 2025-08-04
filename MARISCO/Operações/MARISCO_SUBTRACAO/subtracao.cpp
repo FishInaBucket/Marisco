@@ -1,26 +1,117 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 using namespace std;
 
-int resposta = 0, dificuldade = 0, tamanho_dificuldade = 0;
-int val_1, val_2, val_3, val_4, val_z;
+bool sair = false;
+int dificuldade, tamanho_dificuldade, entrada = 0;
+int val_1, val_2, val_3, val_4,val_z = 0;
 
-auto intro = [] () {
+
+void valoraleatorio();
+void resposta_A();
+void dificuldade_subtracao();
+void marisco_programa();
+void user_erro();
+void menu_voltar();
+
+void config() {
+
+    setlocale(LC_ALL,"");
+
+
+    #ifdef _WIN32
+        system("title MARISCO - Prática de Matemática");
+    #else
+        cout << "\033]0;MARISCO - Prática de Matemática\007";
+    #endif
+
+
+
+    unsigned seed = time(0);
+    srand(seed);
+
+}
+
+void limparTela() {
+        #ifdef _WIN32
+            system("CLS");
+        #else
+            system("clear");
+        #endif
+}
+
+void pausa() {
+    #ifdef _WIN32
+        system("pause");
+    #else
+        cout << "pressione qualquer tecla para continuar...";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.get();
+    #endif
+}
+
+void intro() {
 cout << "\n";
     cout << "************************************";
     cout << "\n" << "**************" << "Marisco" << "***************" << "\n";
     cout << "************************************";
 cout << "\n";
-    cout << ">>>>>>>>>>>>>" << " SUBTRAÇÃO " << "<<<<<<<<<<<<<<";
+    cout << ">>>>>>>>>>>>>" << "    SUBTRAÇÃO  " << "<<<<<<<<<<<<<<";
 cout << "\n";
-};
+}
+
+
+
+int main() {
+    config();
+
+    limparTela();
+    intro();
+    dificuldade_subtracao();
+
+    return 0;
+}
+
+
+
+void valoraleatorio() {
+
+    val_1 = 10 + rand()%tamanho_dificuldade;
+    val_2 = 4 + rand()%tamanho_dificuldade;
+    val_3 = 44 + rand()%tamanho_dificuldade;
+    val_4 = 444 + rand()%tamanho_dificuldade;
+
+}
+
+void resposta() {
+    while (true) {
+        entrada = 0;
+        cin >> entrada;
+
+
+        if (cin.fail()) {
+            cout << "Entrada inválida! Por favor, digite apenas números.\n";
+            pausa();
+            cin.clear();
+
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            menu_voltar();
+
+        } else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            break;
+        }
+    }
+}
+
 
 void dificuldade_subtracao(){
-
 cout << endl << endl;
-
-    cout << "Escolha uma dificuldade" << "\n";
+    cout << "Escolha uma dificuldade: " << endl;
 cout << endl << "+++++++++++++++++++++++++" << endl;
     cout << "       " << "(1)" << "fácil" << endl;
     cout << "       " << "(2)"<< "médio" << endl;
@@ -28,120 +119,152 @@ cout << endl << "+++++++++++++++++++++++++" << endl;
 cout << endl << "+++++++++++++++++++++++++" << endl;
 
 cout << endl << endl;
+          cout << "[DICA:]Você pode digitar uma letra (exemplo: a, b, c, etc.) para ter a opção de voltar ou não para esse menu de escolha";
+cout << endl << endl << "digite o número para escolher uma dificuldade (de 1 até 3): ";
+    dificuldade = 0;
 
-cout << endl << "digite o número para escolher a dificuldade (de 1 até 3): "; cin >> resposta;
-
-switch(resposta){
+    resposta();
+while (true){
+switch(entrada){
     case 1:
         cout << "fácil";
         dificuldade = 1;
-        tamanho_dificuldade = 201;
-    break;
+        tamanho_dificuldade = 144;
+        marisco_programa();
+        return;
     case 2:
         cout << "médio";
         dificuldade = 2;
-        tamanho_dificuldade = 888;
-    break;
+        tamanho_dificuldade = 988;
+        marisco_programa();
+
+    return;
     case 3:
         cout << "difícil";
         dificuldade = 3;
         tamanho_dificuldade = 999999;
-    break;
+        marisco_programa();
+    return;
 
     default:
-        cout << "apenas valores de 1 até 3" << endl;
-            system("pause");
-            system("CLS");
+        cout << "Por favor, digite apenas um número de 1 a 3 para escolher a dificuldade." << endl;
+
+        pausa();
+        limparTela();
         intro();
-        dificuldade_subtracao();
+  }
+ }
+}
+void user_erro(){
+
+    if(dificuldade == 1){
+        cout << endl << val_1 << " - " << val_2 << " é igual(=) a: " << val_z << endl;
+    } else if (dificuldade == 2){
+        cout << endl << val_1 << " - " << val_2 << " - " << val_3 << " é igual(=) a: " << val_z << endl;
+    } else {
+        cout << endl << val_1 << " - " << val_2<< " - " << val_3 << " - " << val_4 << " é igual(=) a: " << val_z << endl;
+    }
+
+        cout << endl << "Resposta errada :(" << endl;
+        cout << endl << "   NÃO DESISTA!!!!   " << endl;
+        pausa();
+        limparTela();
+
 }
 
+void menu_voltar(){
+    cout << "Deseja voltar ao menu de dificuldade? digite 1(SIM [voltar para o menu de dificuldade]) ou 2(NÃO[Continuar onde está]): ";
+
+            resposta();
+            if(entrada == 1){
+                limparTela();
+                sair = false;
+                intro();
+                dificuldade_subtracao();
+            } else if (entrada == 2){
+                    if (dificuldade == 0){
+                        limparTela();
+                        intro();
+                        dificuldade_subtracao();
+                    } else {
+                        limparTela();
+                        marisco_programa();
+                    }
+            } else {
+                  limparTela();
+                cout << "Resposta inválida! Mandando para o menu de dificuldade." << endl;
+                  pausa();
+                  limparTela();
+                  intro();
+                  dificuldade_subtracao();
+            }
+
+
 }
 
-int subtracao(){
-    system("CLS");
+void marisco_programa(){
+    sair = true;
+    limparTela();
 
-unsigned seed = time(0);
-srand(seed);
+    while(sair){
 
-    while(true){
-        system("CLS");
+        limparTela();
+        valoraleatorio();
 
         cout << endl << "           " << "      SUBTRAÇÃO     " << "           " << endl;
 
-            val_1 = 100 + rand()%tamanho_dificuldade; val_2 = 10 + rand()%tamanho_dificuldade; val_3 = 94 + rand()%tamanho_dificuldade; val_4 = 901 + rand()%tamanho_dificuldade;
+    switch(dificuldade){
 
-        if(dificuldade == 1){
+        case 1:
 
-            resposta = 0;
-            cout << " " << val_1 << endl << "-" << val_2;
-
+                cout << val_1 << " - "  << val_2;
             val_z = val_1 - val_2;
+                cout << endl << "Resposta: ";
+                resposta();
+                if(entrada == val_z){
+                    continue;
+                }else{
+                    user_erro();
+                  }
+            break;
 
-                cout << endl << "Resposta: "; cin >> resposta;
-                    if(resposta == val_z){
-                        subtracao();
-                    }else{
-                        cout << endl << "Resposta errada :(" << endl;
-                        cout << endl << val_1 << " - " << val_2 << " é igual(=) a: " << val_z << endl;
-                        cout << endl << "   NÃO DESISTA!!!!   " << endl;
+        case 2:
 
-                        system("PAUSE");
-                        system("CLS");
-
-                     }
-
-        }
-        if(dificuldade == 2){
-            resposta = 0;
-                cout << " " << val_1 << endl << " " << val_2 << endl<< "-" << val_3;
-
+                cout << val_1 << " - "  << val_2 <<  " - " << val_3;
             val_z = val_1 - val_2 - val_3;
+                cout << endl << "Resposta: ";
+                resposta();
 
-                cout << endl << "Resposta: "; cin >> resposta;
-                    if(resposta == val_z){
-                            subtracao();
-                        }else{
-                            cout << endl << "Resposta errada :(" << endl;
-                            cout << endl << val_1 << " - " << val_2 << " - " << val_3 << " é igual(=) a: " << val_z << endl;
-                            cout << endl << "   NÃO DESISTA!!!!   " << endl;
 
-                            system("PAUSE");
-                            system("CLS");
-                        }
-        }
-        if(dificuldade == 3){
-             resposta = 0;
-                cout << " " << val_1 << endl << " " << val_2 << endl << " " << val_3 << endl << "-" << val_4;
+                 if(entrada == val_z){
+                    continue;
+                 }else{
+                user_erro();
+                }
 
+
+            break;
+
+        case 3:
+
+                cout << val_1 <<  " - "  << val_2 << " - "  << val_3 << " - "  << val_4;
             val_z = val_1 - val_2 - val_3 - val_4;
+                cout << endl << "Resposta: ";
+                resposta();
 
-                cout << endl << "Resposta: "; cin >> resposta;
 
-                    if(resposta == val_z){
-                        subtracao();
-                        }else{
-                            cout << endl << "Resposta errada :(" << endl;
-                            cout << endl << val_1 << " - " << val_2<< " - " << val_3 << " - " << val_4 << " é igual(=) a: " << val_z << endl;
-                            cout << endl << "   NÃO DESISTA!!!!   " << endl;
+                if(entrada == val_z){
+                    continue;
+                }else{
+                user_erro();
+                     }
+            break;
 
-                            system("PAUSE");
-                            system("CLS");
-                        }
-        }
-
+        default:
+            cout << "Ocorreu um erro, redirecionando para o menu de escolha de dificuldade mais uma vez";
+            pausa();
+            limparTela();
+            intro();
     }
-
-}
-
-int main(){
-setlocale(LC_ALL,"");
-
-intro();
-dificuldade_subtracao();
-subtracao();
-
-
-
-return 0;
+  }
 }
